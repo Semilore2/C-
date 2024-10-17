@@ -1,0 +1,120 @@
+namespace Simple_calculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the first number: ");
+            double num1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter the second number: ");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter the operator (+, -, *, /, %): ");
+            char operatorSymbol = Console.ReadLine()[0];
+            double result = 0;
+            switch (operatorSymbol)
+            {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Error: Division by zero is not allowed.");
+                    }
+                    else
+                    {
+                        result = num1 / num2;
+                    }
+                    break;
+                case '%':
+                    result = num1 % num2;
+                    break;
+                default:
+                    Console.WriteLine("Invalid operator.");
+                    return;
+            }
+            Console.WriteLine("Result: " + result);
+        }
+    }
+}
+
+
+
+namespace odd_or_even_checker
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("The number is even.");
+            }
+            else
+            {
+                Console.WriteLine("The number is odd.");
+            }
+        }
+    }
+}
+
+
+namespace Largest_number
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the first number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the second number: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the third number: ");
+            int num3 = Convert.ToInt32(Console.ReadLine());
+            int largest = num1;
+            if (num2 > largest)
+            {
+                largest = num2;
+            }
+            if (num3 > largest)
+            {
+                largest = num3;
+            }
+            Console.WriteLine("The largest number is: " + largest);
+        }
+    }
+}
+
+
+namespace Sum_of_natural_numbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a positive integer: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            if (n < 0)
+            {
+                Console.WriteLine("Please enter a positive integer.");
+            }
+            else
+            {
+                int sum = 0;
+                for (int i = 1; i <= n; i++)
+                {
+                    sum += i;
+                }
+                Console.WriteLine("The sum of natural numbers up to " + n + "is: " + sum);
+            }
+        }
+    }
+}
