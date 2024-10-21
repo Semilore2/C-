@@ -1,0 +1,92 @@
+//Emplyee class with a raise
+namespace Employee_Class_with_a_Raise
+{
+    class Employee
+    {
+        public string Name { get; set; }
+        public decimal Salary { get; set; }
+        public void GiveRaise(decimal percentage)
+        {
+            Salary += Salary * (percentage / 100);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee employee = new Employee
+            {
+                Name = "John Doe",
+                Salary = 50000
+            };
+            employee.GiveRaise(5);
+            Console.WriteLine(employee.Name + "new salary is: " + employee.Salary);
+        }
+    }
+}
+
+
+
+//Circle class with constant PI
+namespace Circle_Class_with_Constant_PI
+{
+    class Circle
+    {
+        public double Radius { get; set; }
+        private const double PI = 3.14159;
+        public double CalculateCircumference()
+        {
+            return 2 * PI * Radius;
+        }
+        public double CalculateArea()
+        {
+            return PI * Radius * Radius;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle circle = new Circle
+            {
+                Radius = 5
+            };
+            Console.WriteLine("Circumference is: " + circle.CalculateCircumference());
+            Console.WriteLine("Area is: " + circle.CalculateArea());
+        }
+    }
+}
+
+
+//Person class with age verification
+namespace Person_Class_with_Age_Verification
+{
+    class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public bool IsAdult()
+        {
+            return Age >= 18;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person person = new Person
+            {
+                Name = "John Doe",
+                Age = 25
+            };
+            if (person.IsAdult())
+            {
+                Console.WriteLine(person.Name + "is an adult");
+            }
+            else
+            {
+                Console.WriteLine(person.Name + "is not an adult.");
+            }
+        }
+    }
+}
