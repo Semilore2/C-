@@ -1,0 +1,199 @@
+// Inherintance
+namespace Inheritance
+{
+    class Animal
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public virtual void Speak()
+        {
+            Console.WriteLine("Generic sound");
+        }
+    }
+    class Dog : Animal
+    {
+        public override void Speak()
+        {
+            Console.WriteLine("Bark");
+        }
+    }
+    class Cat : Animal
+    {
+        public override void Speak()
+        {
+            Console.WriteLine("Meow");
+        }
+    }
+    class Bird : Animal
+    {
+        public override void Speak()
+        {
+            Console.WriteLine("Chirp");
+        }
+        public void Fly()
+        {
+            Console.WriteLine("Flying");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dog dog = new Dog {Name = "Bambi", Age = 8};
+            Cat cat = new Cat {Name = "Tom", Age = 5};
+            Bird bird = new Bird {Name = "Tweety", Age = 3};
+            dog.Speak();
+            cat.Speak();
+            bird.Speak();
+            bird.Fly();
+        }
+    }
+}
+
+
+
+//Abstract classes
+namespace Abstract_classes
+{
+    abstract class Shape
+    {
+        public abstract double GetArea();
+    }
+    class Circle : Shape
+    {
+        private double radius;
+        public Circle(double radius)
+        {
+            this.radius = radius;
+        }
+        public override double GetArea()
+        {
+            return Math.PI * radius * radius;
+        }
+    }
+    class Rectangle : Shape
+    {
+        private double width;
+        private double height;
+        public Rectangle(double width, double height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+        public override double GetArea()
+        {
+            return width * height;
+        }
+    }
+    class Triangle : Shape
+    {
+        private double baseLength;
+        private double height;
+        public Triangle(double baseLength, double height)
+        {
+            this.baseLength = baseLength;
+            this.height = height;
+        }
+        public override double GetArea()
+        {
+            return 0.5 * baseLength * height;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle circle = new Circle(5);
+            Rectangle rectangle = new Rectangle(4, 3);
+            Triangle triangle = new Triangle(6, 4);
+            Console.WriteLine("Circle area: " + circle.GetArea());
+            Console.WriteLine("Rectangle area: " + rectangle.GetArea());
+            Console.WriteLine("Triangle area: " + triangle.GetArea());
+        }
+    }
+}
+
+
+
+//Structs
+namespace Structs
+{
+    struct Point
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double DistanceFromOrigin()
+        {
+            return Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
+        }
+    }
+    struct Rectangle
+    {
+        public Point TopLeft { get; set; }
+        public Point BottomRight { get; set; }
+        public double CalculateArea()
+        {
+            double width = BottomRight.X - TopLeft.X;
+            double height = TopLeft.Y - BottomRight.Y;
+            return width * height;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Point p1 = new Point { X = 3, Y = 4 };
+            Console.WriteLine("Distance from origin: " + p1.DistanceFromOrigin());
+            Rectangle rect = new Rectangle
+            {
+                TopLeft = new Point { X = 1, Y = 5 },
+                BottomRight = new Point { X = 4, Y = 3 }
+            };
+            Console.WriteLine("Rectangle area: " + rect.CalculateArea());
+        }
+    }
+}
+
+
+
+//Interfaces
+namespace Interfaces
+{
+    interface Imovable
+    {
+        void Move();
+    }
+    class Car : Imovable
+    {
+        public void Move()
+        {
+            Console.WriteLine("Driving");
+        }
+    }
+    class Bicycle : Imovable
+    {
+        public void Move()
+        {
+            Console.WriteLine("Pedaling");
+        }
+    }
+    class Airplane : Imovable
+    {
+        public void Move()
+        {
+            Console.WriteLine("Flying");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Car car = new Car();
+            Bicycle bicycle = new Bicycle();
+            Airplane airplane = new Airplane();
+            car.Move();
+            bicycle.Move();
+            airplane.Move();
+        }
+    }
+}
